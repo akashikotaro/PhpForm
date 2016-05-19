@@ -43,9 +43,9 @@
                 <tr>
                     <td class = menu>電話番号</td>
                     <td>
-                        <input type="text" name="tel1" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9a-z]+/i,'')"> -
-                        <input type="text" name="tel2" size=4 maxlength="4"> -
-                        <input type="text" name="tel3" size=4 maxlength="4">
+                        <input type="text" name="tel1" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')"> -
+                        <input type="text" name="tel2" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')"> -
+                        <input type="text" name="tel3" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')">
                     </td>
                 </tr>
 
@@ -53,8 +53,8 @@
                 <tr>
                     <td class = menu>メールアドレス</td>
                     <td>
-                        <input type="text" name="email1" size=12> @
-                        <input type="text" name="email2" size=12>
+                        <input type="text" name="email1" size=12 onKeyup="this.value=this.value.replace(/[^0-9a-z]+/i,'')"> @
+                        <input type="text" name="email2" size=12 onKeyup="this.value=this.value.replace(/[^0-9a-z]+/i,'')">
                     </td>
                 </tr>
 
@@ -85,7 +85,7 @@
                 <tr>
                     <td class = menu>お問い合わせ内容</td>
                     <td>
-                        <textarea name="content" rows=5 cols=40></textarea>
+                        <textarea name="content" rows=5 cols=50></textarea>
                     </td>
                 </tr>
 

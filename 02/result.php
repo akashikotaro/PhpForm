@@ -1,5 +1,7 @@
 <html>
-<head></head>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
 <?php
 
@@ -9,34 +11,20 @@
     $checkarray = array("知人、友人から","雑誌、チラシから","サイトから");
     $quearray = array("製品について","不具合について","その他");
 
-    echo "<table>";
+    echo "<div class = 'contents'>";
+    echo "<table border=1>";
 
     echo "<tr>";
-    echo "<td>";
-    echo "姓";
+    echo "<td class = menu>";
+    echo "姓名";
     echo "</td>";
     echo "<td>";
-    if($_POST['surname'] != null){
+    if($_POST['surname'] != null && $_POST['name'] != null){
         $surname = htmlspecialchars($_POST['surname']);
-        echo $surname;
-    }else{
-        echo "<font color='red'>※姓が入力されていません</font>";
-        $flag = 1;
-    }
-
-    echo "</td>";
-    echo "</tr>";
-
-    echo "<tr>";
-    echo "<td>";
-    echo "名";
-    echo "</td>";
-    echo "<td>";
-    if($_POST['name'] != null){
         $name = htmlspecialchars($_POST['name']);
-        echo $name;
+        echo $surname." ".$name;
     }else{
-        echo "<font color='red'>※名が入力されていません</font>";
+        echo "<font color='red'>※姓または名が入力されていません</font>";
         $flag = 1;
     }
 
@@ -45,7 +33,7 @@
 
 
     echo "<tr>";
-    echo "<td>";
+    echo "<td class = menu>";
     echo "性別";
     echo "</td>";
     echo "<td>";
@@ -59,12 +47,13 @@
 
 
     echo "<tr>";
-    echo "<td>";
+    echo "<td class = menu>";
     echo "住所";
     echo "</td>";
     echo "<td>";
     if($_POST['address'] != null){
         $address = htmlspecialchars($_POST['address']);
+        echo $address;
     }else{
         echo "<font color='red'>※住所が入力されていません</font>";
         $flag = 1;
@@ -75,7 +64,7 @@
 
 
     echo "<tr>";
-    echo "<td>";
+    echo "<td class = menu>";
     echo "電話番号";
     echo "</td>";
     echo "<td>";
@@ -96,7 +85,7 @@
 
 
     echo "<tr>";
-    echo "<td>";
+    echo "<td class = menu>";
     echo "メールアドレス";
     echo "</td>";
     echo "<td>";
@@ -114,14 +103,14 @@
 
 
     echo "<tr>";
-    echo "<td>";
+    echo "<td class = menu>";
     echo "どこでこの製品を<br/>知りましたか？";
     echo "</td>";
     echo "<td>";
     if($_POST['check'] != 0){
         $check = $_POST['check'];
         for($i=0;$i<count($check);$i++){
-            echo $checkarray[$check[$i]-1];
+            echo $checkarray[$check[$i]-1]."<br />";
             $flag2 = 1;
         }
     }else{
@@ -133,7 +122,7 @@
 
 
     echo "<tr>";
-    echo "<td>";
+    echo "<td class = menu>";
     echo "質問カテゴリ";
     echo "</td>";
     echo "<td>";
@@ -147,12 +136,13 @@
 
 
     echo "<tr>";
-    echo "<td>";
+    echo "<td class = menu>";
     echo "お問い合わせ内容";
     echo "</td>";
     echo "<td>";
     if($_POST['content'] != null){
-        echo $_POST['content'];
+        $content = htmlspecialchars($_POST['content']);
+        echo $content;
     }else{
         echo "<font color='red'>※お問い合わせ内容が入力されていません</font>";
         $flag = 1;
@@ -171,6 +161,9 @@
         echo "<input type='submit' value='完了'>";
     }
 
-
+    echo "</div>";
 
 ?>
+
+</body>
+</html>

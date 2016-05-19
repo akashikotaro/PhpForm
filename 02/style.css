@@ -1,10 +1,22 @@
 @charset "UTF-8";
 
+/* フォームの設定 */
 form{
     padding-top: 80px;
     text-align: center;
 }
 
+
+
+/* コンテンツ全体の設定 */
+.contents{
+    padding-top: 80px;
+    text-align: center;
+}
+
+
+
+/* フォームのテーブルの設定 */
 table{
     font-size: 20px;
     width: 600px;
@@ -15,11 +27,15 @@ table td{
     padding: 10px;
 }
 
+/* 姓、名、性別などの項目の設定 */
 .menu{
     text-align: left;
     width: 170px;
 }
 
+
+
+/* リセットボタンの設定 */
 input[type=reset]{
     font-size: 30px;
     margin:auto;
@@ -27,9 +43,37 @@ input[type=reset]{
     padding: 5px 10px;
 }
 
+
+
+/* 戻るボタンの設定 */
+input[type=button]{
+    font-size: 30px;
+    margin:auto;
+    margin-top: 20px;
+    padding: 5px 10px;
+}
+
+
+/* 完了ボタンの設定 */
 input[type=submit]{
     font-size: 30px;
     margin: auto;
     margin-left: 30px;
     padding: 5px 10px;
+}
+
+/* テキストボックスの設定 */
+input[type=text]{
+    font-size: 17px;
+}
+
+
+/* テキストエリアの設定 */
+textarea{
+    resize:none;
+}
+
+
+select{
+    font-size: 17px;
 }
