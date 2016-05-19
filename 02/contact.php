@@ -5,19 +5,19 @@
     <body>
         <form action="result.php" method="post">
             <table border=1>
-
+                <caption>お問い合わせ</caption>
                 <tr>
-                    <td class = menu>姓</td>
+                    <td class = menu>姓　[全角文字]<div class = require>必須</div></td>
                     <td>
-                        <input type="text" name="surname" size=12>
+                        <input type="text" name="surname" size=12 required>
                     </td>
                 </tr>
 
 
                 <tr>
-                    <td class = menu>名</td>
+                    <td class = menu>名　[全角文字]<label class = require>必須</label></td>
                     <td>
-                        <input type="text" name="name" size=12>
+                        <input type="text" name="name" size=12 required>
                     </td>
                 </tr>
 
@@ -25,42 +25,42 @@
                 <tr>
                     <td class = menu>性別</td>
                     <td>
-                        <input type="radio" name="gender" size=12 value=1 checked="true">男性
-                        <input type="radio" name="gender" size=12 value=2>女性
-                        <input type="radio" name="gender" size=12 value=3>その他
+                        <label><input type="radio" name="gender" size=12 value=1 checked="true" required>男性</lebel>
+                        <label><input type="radio" name="gender" size=12 value=2 required>女性</label>
+                        <label><input type="radio" name="gender" size=12 value=3 required>その他</label>
                     </td>
                 </tr>
 
 
                 <tr>
-                    <td class = menu>住所</td>
+                    <td class = menu>住所<label class = require>必須</label></td>
                     <td>
-                        <input type="text" name="address" size=30>
+                        <input type="text" name="address" size=30 required>
                     </td>
                 </tr>
 
 
                 <tr>
-                    <td class = menu>電話番号</td>
+                    <td class = menu>電話番号<label class = require>必須</label></td>
                     <td>
-                        <input type="text" name="tel1" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')"> -
-                        <input type="text" name="tel2" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')"> -
-                        <input type="text" name="tel3" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')">
+                        <input type="text" name="tel1" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" required> -
+                        <input type="text" name="tel2" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" required> -
+                        <input type="text" name="tel3" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" required>
                     </td>
                 </tr>
 
 
                 <tr>
-                    <td class = menu>メールアドレス</td>
+                    <td class = menu>メールアドレス<label class = require>必須</label></td>
                     <td>
-                        <input type="text" name="email1" size=12 onKeyup="this.value=this.value.replace(/[^0-9a-z]+/i,'')"> @
-                        <input type="text" name="email2" size=12 onKeyup="this.value=this.value.replace(/[^0-9a-z]+/i,'')">
+                        <input type="text" name="email1" size=12 onKeyup="this.value=this.value.replace(/[^0-9a-z]+/i,'')" required> @
+                        <input type="text" name="email2" size=12 onKeyup="this.value=this.value.replace(/[^0-9a-z]+/i,'')" required>
                     </td>
                 </tr>
 
 
                 <tr>
-                    <td class = menu>どこでこの製品を<br/>知りましたか？</td>
+                    <td class = menu>どこでこの製品を<br/>知りましたか？<label class = notrequire>複数可</label></td>
                     <td>
                         <input type="hidden" name="check" value=0>
                         <input type="checkbox" name="check[]" value=1>知人、友人から<br />
@@ -83,9 +83,9 @@
 
 
                 <tr>
-                    <td class = menu>お問い合わせ内容</td>
+                    <td class = menu>お問い合わせ内容<label class = require>必須</label></td>
                     <td>
-                        <textarea name="content" rows=5 cols=50></textarea>
+                        <textarea name="content" rows=5 cols=55 required></textarea>
                     </td>
                 </tr>
 

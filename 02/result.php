@@ -13,21 +13,16 @@
 
     echo "<div class = 'contents'>";
     echo "<table border=1>";
+    echo "<caption>お問い合わせ</caption>";
 
     echo "<tr>";
     echo "<td class = menu>";
     echo "姓名";
     echo "</td>";
     echo "<td>";
-    if($_POST['surname'] != null && $_POST['name'] != null){
-        $surname = htmlspecialchars($_POST['surname']);
-        $name = htmlspecialchars($_POST['name']);
-        echo $surname." ".$name;
-    }else{
-        echo "<font color='red'>※姓または名が入力されていません</font>";
-        $flag = 1;
-    }
-
+    $surname = htmlspecialchars($_POST['surname']);
+    $name = htmlspecialchars($_POST['name']);
+    echo $surname." ".$name;
     echo "</td>";
     echo "</tr>";
 
@@ -37,11 +32,8 @@
     echo "性別";
     echo "</td>";
     echo "<td>";
-    if($_POST['gender'] != null){
-        $gender = $_POST['gender'];
-        echo $genarray[$gender-1];
-    }
-
+    $gender = $_POST['gender'];
+    echo $genarray[$gender-1];
     echo "</td>";
     echo "</tr>";
 
@@ -51,14 +43,8 @@
     echo "住所";
     echo "</td>";
     echo "<td>";
-    if($_POST['address'] != null){
-        $address = htmlspecialchars($_POST['address']);
-        echo $address;
-    }else{
-        echo "<font color='red'>※住所が入力されていません</font>";
-        $flag = 1;
-    }
-
+    $address = htmlspecialchars($_POST['address']);
+    echo $address;
     echo "</td>";
     echo "</tr>";
 
@@ -68,18 +54,11 @@
     echo "電話番号";
     echo "</td>";
     echo "<td>";
-    if($_POST['tel1'] != null && $_POST['tel2'] != null && $_POST['tel3'] != null ){
-        echo $_POST['tel1'];
-        echo "-";
-        echo $_POST['tel2'];
-        echo "-";
-        echo $_POST['tel3'];
-    }else{
-        echo "<font color='red'>※電話番号が入力されていません</font>";
-        $flag = 1;
-
-    }
-
+    echo $_POST['tel1'];
+    echo "-";
+    echo $_POST['tel2'];
+    echo "-";
+    echo $_POST['tel3'];
     echo "</td>";
     echo "</tr>";
 
@@ -89,15 +68,11 @@
     echo "メールアドレス";
     echo "</td>";
     echo "<td>";
-    if($_POST['email1'] != null && $_POST['email2'] != null){
-        echo $_POST['email1'];
-        echo "@";
-        echo $_POST['email2'];
-    }else{
-        echo "<font color='red'>※メールアドレスが入力されていません</font>";
-        $flag = 1;
-    }
-
+    $email1 = htmlspecialchars($_POST['email1']);
+    echo $email1;
+    echo "@";
+    $email2 = htmlspecialchars($_POST['email2']);
+    echo $email2;
     echo "</td>";
     echo "</tr>";
 
@@ -126,11 +101,8 @@
     echo "質問カテゴリ";
     echo "</td>";
     echo "<td>";
-    if($_POST['question'] != null){
-        $question = $_POST['question'];
-        echo $quearray[$question-1];
-    }
-
+    $question = $_POST['question'];
+    echo $quearray[$question-1];
     echo "</td>";
     echo "</tr>";
 
@@ -140,14 +112,8 @@
     echo "お問い合わせ内容";
     echo "</td>";
     echo "<td>";
-    if($_POST['content'] != null){
-        $content = htmlspecialchars($_POST['content']);
-        echo $content;
-    }else{
-        echo "<font color='red'>※お問い合わせ内容が入力されていません</font>";
-        $flag = 1;
-    }
-
+    $content = htmlspecialchars($_POST['content']);
+    echo $content;
     echo "</td>";
     echo "</tr>";
 
@@ -156,10 +122,6 @@
     echo "<br /><br />";
 
     echo "<input type='button' value='戻る' onclick='history.back()'>";
-
-    if($flag == 0){
-        echo "<input type='submit' value='完了'>";
-    }
 
     echo "</div>";
 
