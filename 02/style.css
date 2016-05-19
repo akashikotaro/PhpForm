@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+/* bodyの設定 */
+body{
+    font-family: meiryo;
+}
+
+/* フォームの設定 */
+form{
+    padding-top: 80px;
+    text-align: center;
+}
+
+
+
+/* コンテンツ全体の設定 */
+.contents{
+    padding-top: 80px;
+    text-align: center;
+}
+
+
+
+/* フォームのテーブルの設定 */
+table{
+    font-size: 20px;
+    width: 850px;
+    margin: auto;
+    /*background-color: #F0FFFF;*/
+}
+
+table td{
+    padding: 10px;
+}
+
+/* テーブルの見出し */
+caption{
+    font-size: 30px;
+    background-color: #87CEEB;
+    padding:20px 10px 10px 10px;
+    margin-bottom: 3px;
+    border: 1px solid #000000;
+}
+
+
+/* 姓、名、性別などの項目の設定 */
+.menu{
+    width: 270px;
+    /*background-color: #F0FFFF;*/
+}
+
+
+
+/* リセットボタンの設定 */
+input[type=reset]{
+    font-size: 30px;
+    margin:auto;
+    margin-top: 20px;
+    padding: 5px 10px;
+}
+
+
+
+/* 戻るボタンの設定 */
+input[type=button]{
+    font-size: 30px;
+    margin:auto;
+    margin-top: 20px;
+    padding: 5px 10px;
+}
+
+
+/* 完了ボタンの設定 */
+input[type=submit]{
+    font-size: 30px;
+    margin: auto;
+    margin-left: 30px;
+    padding: 5px 10px;
+}
+
+/* テキストボックスの設定 */
+input[type=text]{
+    font-size: 17px;
+}
+
+
+/* テキストエリアの設定 */
+textarea{
+    resize:none;
+    font-size: 17px;
+}
+
+/* リストボックスの設定 */
+select{
+    font-family: meiryo;
+    font-size: 15px;
+}
+
+/* ｢必須｣の文字の設定 */
+.require{
+    float: right;
+    color: #FFFFFF;
+    background-color: #FF7F50;
+    width: 40px;
+    padding: 2px 4px;
+}
+
+/* ｢複数可｣の設定 */
+.notrequire{
+    float: right;
+    color: #FFFFFF;
+    background-color: #4682B4;
+    width: 60px;
+    padding: 2px 4px;
+}
