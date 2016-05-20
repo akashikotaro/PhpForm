@@ -105,9 +105,7 @@
     echo "</td>";
     echo "<td>";
     $content = htmlspecialchars($_POST['content']);
-    echo "<textarea readonly rows=5 cols=55>";
     echo $content;
-    echo "</textarea>";
     echo "</td>";
     echo "</tr>";
 
