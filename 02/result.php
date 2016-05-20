@@ -5,10 +5,8 @@
 <body>
 <?php
 
-    $flag = 0;
-    $flag2 = 0;
     $genarray = array("男性","女性","その他");
-    $checkarray = array("知人、友人から","雑誌、チラシから","サイトから");
+    $checkarray = array("なし","知人、友人から","雑誌、チラシから","サイトから");
     $quearray = array("製品について","不具合について","その他");
 
     echo "<div class = 'contents'>";
@@ -82,16 +80,10 @@
     echo "どこでこの製品を<br/>知りましたか？";
     echo "</td>";
     echo "<td>";
-    if($_POST['check'] != 0){
-        $check = $_POST['check'];
-        for($i=0;$i<count($check);$i++){
-            echo $checkarray[$check[$i]-1]."<br />";
-            $flag2 = 1;
-        }
-    }else{
-        echo "無し";
+    $check = $_POST['check'];
+    for($i=0;$i<count($check);$i++){
+        echo $checkarray[$check[$i]]."<br />";
     }
-
     echo "</td>";
     echo "</tr>";
 
@@ -113,7 +105,9 @@
     echo "</td>";
     echo "<td>";
     $content = htmlspecialchars($_POST['content']);
+    echo "<textarea readonly rows=5 cols=55>";
     echo $content;
+    echo "</textarea>";
     echo "</td>";
     echo "</tr>";
 
@@ -121,7 +115,7 @@
 
     echo "<br /><br />";
 
-    echo "<input type='button' value='戻る' onclick='history.back()'>";
+    echo "<input type='button' value='戻る' onclick='history.back()' class = 'btn'>";
 
     echo "</div>";
 

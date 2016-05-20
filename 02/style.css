@@ -11,8 +11,6 @@ form{
     text-align: center;
 }
 
-
-
 /* コンテンツ全体の設定 */
 .contents{
     padding-top: 80px;
@@ -21,62 +19,59 @@ form{
 
 
 
+
+/* リストボックス、チェックボックス、ラジオボタンにカーソルを当てるときの設定 */
+select,label, input[type='checkbox'],input[type='radio'] {
+    cursor: pointer;
+}
+
 /* フォームのテーブルの設定 */
 table{
     font-size: 20px;
     width: 850px;
     margin: auto;
+    border: 1px solid #000;
     /*background-color: #F0FFFF;*/
 }
 
 table td{
     padding: 10px;
+    border: 1px solid #000;
 }
 
 /* テーブルの見出し */
 caption{
-    font-size: 30px;
-    background-color: #87CEEB;
-    padding:20px 10px 10px 10px;
-    margin-bottom: 3px;
-    border: 1px solid #000000;
+    letter-spacing: 9px;
+    padding: 20px;
+    margin-bottom: 5px;
+    border: double 5px #FFFFFF;
+    background-color:#4387e9;
+    font-size: 33px;
+    font-weight: bold;
+    color: #FFFFFF;
 }
 
 
 /* 姓、名、性別などの項目の設定 */
 .menu{
     width: 270px;
-    /*background-color: #F0FFFF;*/
 }
-
-
-
-/* リセットボタンの設定 */
-input[type=reset]{
-    font-size: 30px;
-    margin:auto;
-    margin-top: 20px;
-    padding: 5px 10px;
-}
-
-
-
-/* 戻るボタンの設定 */
-input[type=button]{
-    font-size: 30px;
-    margin:auto;
-    margin-top: 20px;
-    padding: 5px 10px;
-}
-
 
 /* 完了ボタンの設定 */
 input[type=submit]{
-    font-size: 30px;
-    margin: auto;
-    margin-left: 30px;
-    padding: 5px 10px;
+    margin-left: 70px;
 }
+
+/* 各種ボタンの設定 */
+.btn{
+    margin: auto;
+    font-size: 35px;
+    border-radius: 3px;
+    padding: 8px 13px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
 
 /* テキストボックスの設定 */
 input[type=text]{
@@ -109,7 +104,7 @@ select{
 .notrequire{
     float: right;
     color: #FFFFFF;
-    background-color: #4682B4;
+    background-color:#4387e9;
     width: 60px;
     padding: 2px 4px;
 }
