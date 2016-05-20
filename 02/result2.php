@@ -1,123 +1,79 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel='stylesheet' type='text/css' href='style2.css'>
 </head>
 <body>
 <?php
 
-    $genarray = array("男性","女性","その他");
-    $checkarray = array("なし","知人、友人から","雑誌、チラシから","サイトから");
-    $quearray = array("製品について","不具合について","その他");
+    $genarray = array('男性','女性','その他');
+    $checkarray = array('なし','知人、友人から','雑誌、チラシから','サイトから');
+    $quearray = array('製品について','不具合について','その他');
 
-    echo "<div class = 'contents'>";
-    echo "<table border=1>";
-    echo "<caption>お問い合わせ</caption>";
+    echo "<form>";
 
-    echo "<tr>";
-    echo "<td class = menu>";
-    echo "姓名";
-    echo "</td>";
-    echo "<td>";
+    echo "<h1>お問い合わせ</h1>";
+
+    echo "<div class = main>";
+
     $surname = htmlspecialchars($_POST['surname']);
     $name = htmlspecialchars($_POST['name']);
-    echo $surname." ".$name;
-    echo "</td>";
-    echo "</tr>";
+    echo "<div class ='menu'>姓名</div>";
+    echo "<div class ='input'>".$surname."　".$name."</div>";
 
+    echo "<div class ='clear'></div>";
 
-    echo "<tr>";
-    echo "<td class = menu>";
-    echo "性別";
-    echo "</td>";
-    echo "<td>";
     $gender = $_POST['gender'];
-    echo $genarray[$gender-1];
-    echo "</td>";
-    echo "</tr>";
+    echo "<div class ='menu'>性別</div>";
+    echo "<div class='input'>".$genarray[$gender-1]."</div>";
 
+    echo "<div class ='clear'></div>";
 
-    echo "<tr>";
-    echo "<td class = menu>";
-    echo "住所";
-    echo "</td>";
-    echo "<td>";
     $address = htmlspecialchars($_POST['address']);
-    echo $address;
-    echo "</td>";
-    echo "</tr>";
+    echo "<div class ='menu'>住所</div>";
+    echo "<div class = 'input'>".$address."</div>";
 
+    echo "<div class ='clear'></div>";
 
-    echo "<tr>";
-    echo "<td class = menu>";
-    echo "電話番号";
-    echo "</td>";
-    echo "<td>";
-    echo $_POST['tel1'];
-    echo "-";
-    echo $_POST['tel2'];
-    echo "-";
-    echo $_POST['tel3'];
-    echo "</td>";
-    echo "</tr>";
+    echo "<div class ='menu'>電話番号</div>";
+    echo "<div class = 'input'>".$_POST['tel1']."-".$_POST['tel2']."-".$_POST['tel3']."</div>";
 
+    echo "<div class ='clear'></div>";
 
-    echo "<tr>";
-    echo "<td class = menu>";
-    echo "メールアドレス";
-    echo "</td>";
-    echo "<td>";
-    $email1 = htmlspecialchars($_POST['email1']);
-    echo $email1;
-    echo "@";
-    $email2 = htmlspecialchars($_POST['email2']);
-    echo $email2;
-    echo "</td>";
-    echo "</tr>";
+    echo "<div class ='menu'>メールアドレス</div>";
+    echo "<div class='input'>".$_POST['email1']."@".$_POST['email2']."</div>";
 
+    echo "<div class ='clear'></div>";
 
-    echo "<tr>";
-    echo "<td class = menu>";
-    echo "どこでこの製品を<br/>知りましたか？";
-    echo "</td>";
-    echo "<td>";
     $check = $_POST['check'];
+    echo "<div class ='menu'>どこでこの製品を<br/>知りましたか？</div>";
+    echo "<div class='input'>";
     for($i=0;$i<count($check);$i++){
         echo $checkarray[$check[$i]]."<br />";
     }
-    echo "</td>";
-    echo "</tr>";
+    echo "</div>";
 
+    echo "<div class ='clear'></div>";
 
-    echo "<tr>";
-    echo "<td class = menu>";
-    echo "質問カテゴリ";
-    echo "</td>";
-    echo "<td>";
     $question = $_POST['question'];
-    echo $quearray[$question-1];
-    echo "</td>";
-    echo "</tr>";
+    echo "<div class ='menu'>質問カテゴリ</div>";
+    echo "<div class='input'>".$quearray[$question-1]."</div>";
 
+    echo "<div class ='clear'></div>";
 
-    echo "<tr>";
-    echo "<td class = menu>";
-    echo "お問い合わせ内容";
-    echo "</td>";
-    echo "<td>";
     $content = htmlspecialchars($_POST['content']);
+    echo "<div class ='menu'>お問い合わせ内容</div>";
+    echo "<div class='input'>";
+    echo "<textarea readonly rows=5 cols=48>";
     echo $content;
-    echo "</td>";
-    echo "</tr>";
-
-    echo "</table>";
-
-    echo "<br /><br />";
+    echo "</textarea>";
 
     echo "<input type='button' value='戻る' onclick='history.back()' class = 'btn'>";
 
     echo "</div>";
 
-?>
+    echo "</form>";
 
+
+?>
 </body>
 </html>
