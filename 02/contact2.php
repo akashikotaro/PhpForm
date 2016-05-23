@@ -6,13 +6,14 @@
 
         <form action='result2.php' method='post' class = 'form_setting'>   <!-- フォームデータを result.php へポストメソッドを使用して送信 -->
 
+
             <h1>お問い合わせ</h1>     <!-- 見出し -->
 
             <div class = main>     <!-- 入力フォーム　-->
 
                 <div class ='menu'>姓</div>
                 <div class = require>必須</div>
-                <div class ='input'><input type='text' name='surname' size=12 placeholder=' 例) 問合' required></div>  <!-- 苗字を入れるテキストボックス
+                <div class ='input'><input type='text' name='surname' size=12 placeholder=' 例) 問合' required onKeyup="this.value=this.value.replace(/[^ぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')"></div>  <!-- 苗字を入れるテキストボックス
                                                                                                                        タグの属性に requared を使用し、この中身が空白の場合、
                                                                                                                        submit ボタンを押したときに画面上で入力を促すメッセージが表示される -->
 
@@ -23,7 +24,7 @@
 
                 <div class ='menu'>名</div>
                 <div class = require>必須</div>
-                <div class ='input'><input type='text' name='name' size=12 placeholder=' 例) 太郎' required></div>    <!-- 名前を入れるテキストボックス -->
+                <div class ='input'><input type='text' name='name' size=12 placeholder=' 例) 太郎' required　 onKeyup="this.value=this.value.replace(/[^ぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')"></div>    <!-- 名前を入れるテキストボックス -->
 
 
                 <div class ='clear'></div>
@@ -42,7 +43,7 @@
                 <div class ='menu'>住所</div>
                 <div class = require>必須</div>
                 <div class ='input'>
-                    <input type='text' name='address' size=30 placeholder=' 例) 東京都 問合市 問合1-1'　required>     <!-- 住所を入れるテキストボックス -->
+                    <input type='text' name='address' size=30 placeholder=' 例) 東京都 問合市 問合1-1'　required onKeyup="this.value=this.value.replace(/[^ぁ-んａ-ｚＡ-Ｚ一-龥0-9０-９]+/i,'')">     <!-- 住所を入れるテキストボックス -->
                 </div>
 
                 <div class ='clear'></div>
@@ -51,9 +52,9 @@
                 <div class ='menu'>電話番号</div>
                 <div class = require>必須</div>
                 <div class='input'>
-                    <input type='text' name='tel1' size=4 maxlength='4' onKeyup='this.value=this.value.replace(/[^0-9]+/i,'')' placeholder=' 例)000' required> -   <!-- 電話番号を入れるテキストボックス -->
-                    <input type='text' name='tel2' size=4 maxlength='4' onKeyup='this.value=this.value.replace(/[^0-9]+/i,'')' placeholder='  0000' required> -    <!-- 1つのテキストボックスには最大4文字分入力できる -->
-                    <input type='text' name='tel3' size=4 maxlength='4' onKeyup='this.value=this.value.replace(/[^0-9]+/i,'')' placeholder='  0000'required>       <!--半角数字以外の文字は全て入力できないように設定 -->
+                    <input type="text" name="tel1" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" placeholder="例）000" required> -   <!-- 電話番号を入れるテキストボックス -->
+                    <input type="text" name="tel2" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" placeholder=" 0000" required> -    <!-- 1つのテキストボックスには最大4文字分入力できる -->
+                    <input type="text" name="tel3" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" placeholder=" 0000" required>       <!--半角数字以外の文字は全て入力できないように設定 -->
                 </div>
 
 
@@ -63,8 +64,8 @@
                 <div class ='menu'>メールアドレス</div>
                 <div class = require>必須</div>
                 <div class='input'>
-                    <input type='text' name='email1' size=12 onKeyup='this.value=this.value.replace(/[^0-9a-z]+/i,'')' placeholder=' 例) toiawase' required> @   <!--メールアドレスを入れるテキストボックス -->
-                    <input type='text' name='email2' size=12 onKeyup='this.value=this.value.replace(/[^0-9a-z]+/i,'')' placeholder=' toiawase.co.jp' required>   <!-- 半角英数字以外の文字は全て入力できないように設定 -->
+                    <input type='text' name='email1' size=12 onKeyup="this.value=this.value.replace(/[^0-9a-z._-]+/i,'')" placeholder=' 例) toiawase' required> @   <!--メールアドレスを入れるテキストボックス -->
+                    <input type='text' name='email2' size=12 onKeyup="this.value=this.value.replace(/[^0-9a-z._-]+/i,'')" placeholder=' toiawase.co.jp' required>   <!-- 半角英数字以外の文字は全て入力できないように設定 -->
                 </div>
 
 
