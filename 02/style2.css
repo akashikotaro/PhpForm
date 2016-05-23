@@ -1,4 +1,5 @@
-@charset "UTF-8";
+@charset "UTF-8";     /* 文書の文字エンコードを指定 */
+
 
 /* bodyの設定 */
 body{
@@ -7,88 +8,31 @@ body{
     background-color: #0E7AC4;
 }
 
-form{
+/* フォームの設定 */
+.form_setting{
     margin-top: 20px;
-    position: static;
 }
 
 /* リストボックス、チェックボックス、ラジオボタンにカーソルを当てるときの設定 */
 select,label, input[type='checkbox'],input[type='radio'] {
-    cursor: pointer;
-}
-
-/* 見出しの設定 */
-h1{
-    text-align: center;
-    letter-spacing: 8px;
-    padding: 20px 20px 10px 20px;
-    margin-bottom: 5px;
-    /*border: double 5px #FFFFFF;*/
-    background-color:#FBA848;
-    font-size: 40px;
-    color: #FFFFFF;
-    width: 820px;
-    margin: 0 auto;
-    border-radius: 5px;
-}
-
-/* ページ全体の設定 */
-.main{
-    margin: 0 auto;
-    margin-top: 5px;
-    padding-bottom: 25px;
-    padding-top: 50px;
-    padding-left: 50px;
-    width: 810px;
-    background-color:#ECEEF1;
-    position: static;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    /*border: double 5px #bcbcbc;*/
-}
-
-/* 項目の設定 */
-.menu{
-    float: left;
-    padding-left: 10px;
-}
-
-/* 入力する場所の設定 */
-.input{
-    padding-left: 320px;
-    margin-bottom: 25px;
-}
-
-.clear{
-    clear: both;
+    cursor: pointer;    /* カーソルを当てたとき、リンクカーソルになる */
 }
 
 /* テキストボックスの設定 */
 input[type=text]{
     font-size: 17px;
-    border-radius: 3px;
-    font-family: meiryo;
+    border-radius: 3px;   /* ボックスの4つの角を丸める設定 */
+    font-family: meiryo;  /* フォントをメイリオに設定 */
+}
+
+/* リセットボタンの設定 */
+input[type=reset]{
+    margin-left: 230px;   /* 要素間の間隔の設定 */
 }
 
 /* 完了ボタンの設定 */
-input[type=reset]{
-    margin-left: 230px;
-}
-
 input[type=submit]{
     margin-left: 70px;
-}
-
-/* 各種ボタンの設定 */
-.btn{
-    background-color: #58BE89;
-    color: #fff;
-    font-size: 35px;
-    border-radius: 5px;
-    padding: 10px 15px;
-    margin-top: 20px;
-    margin-bottom: 5px;
-    cursor: pointer;
 }
 
 /* テキストエリアの設定 */
@@ -106,13 +50,77 @@ select{
     border-radius: 3px;
 }
 
+
+/* 見出しの設定 */
+h1{
+    text-align: center;
+    letter-spacing: 8px;
+    padding: 20px 20px 10px 20px;   /* 要素内の余白の設定　*/
+    margin-bottom: 5px;
+    background-color:#FBA848;
+    font-size: 40px;
+    color: #FFFFFF;
+    width: 820px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+/* ページ全体の設定 */
+.main{
+    margin: 0 auto;         /* コンテンツをページの中央に配置する設定 */
+    margin-top: 5px;
+    padding-bottom: 25px;
+    padding-top: 50px;
+    padding-left: 50px;
+    width: 810px;
+    background-color:#ECEEF1;
+    border-radius: 5px;
+    letter-spacing: 1px;    /* 文字の間隔の設定 */
+}
+
+/* 項目の設定 */
+.menu{
+    float: left;
+    padding-left: 10px;
+}
+
+/* 入力する場所の設定 */
+.input{
+    padding-left: 320px;
+    margin-bottom: 25px;
+}
+
+/* フローとの解除 */
+.clear{
+    clear: both;
+}
+
+
+/* 全てのボタン共通の設定 */
+.btn{
+    background-color: #58BE89;
+    color: #fff;
+    font-size: 35px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+
 /* ｢必須｣の文字の設定 */
 .require{
     float: right;
     color: #FFFFFF;
     background-color: #FF7F50;
     width: 50px;
-    position: relative;
+    position: relative;     /* 基準位置からの相対位置での配置 */
     right: 540px;
     bottom: 3px;
     padding: 3px 0px 3px 6px;

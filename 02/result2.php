@@ -11,7 +11,7 @@
 
     echo "<form>";
 
-    echo "<h1>お問い合わせ</h1>";
+    echo "<h1>お問い合わせ完了</h1>";
 
     echo "<div class = main>";
 
@@ -24,7 +24,7 @@
 
     $gender = $_POST['gender'];
     echo "<div class ='menu'>性別</div>";
-    echo "<div class='input'>".$genarray[$gender-1]."</div>";
+    echo "<div class='input'>".$genarray[$gender]."</div>";
 
     echo "<div class ='clear'></div>";
 
@@ -56,17 +56,15 @@
 
     $question = $_POST['question'];
     echo "<div class ='menu'>質問カテゴリ</div>";
-    echo "<div class='input'>".$quearray[$question-1]."</div>";
+    echo "<div class='input'>".$quearray[$question]."</div>";
 
     echo "<div class ='clear'></div>";
 
     $content = htmlspecialchars($_POST['content']);
     echo "<div class ='menu'>お問い合わせ内容</div>";
     echo "<div class='input'>";
-    echo "<textarea readonly rows=5 cols=48>";
     echo $content;
-    echo "</textarea>";
-
+    echo "<br />";
     echo "<input type='button' value='戻る' onclick='history.back()' class = 'btn'>";
 
     echo "</div>";
