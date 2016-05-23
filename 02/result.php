@@ -1,26 +1,26 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">       <!-- CSSの読み込み -->
 </head>
 <body>
 <?php
 
-    $genarray = array("男性","女性","その他");
-    $checkarray = array("なし","知人、友人から","雑誌、チラシから","サイトから");
-    $quearray = array("製品について","不具合について","その他");
+    $genarray = array("男性","女性","その他");        // 性別の配列
+    $checkarray = array("なし","知人、友人から","雑誌、チラシから","サイトから");     // ｢どこで知ったか｣　の選択肢の配列
+    $quearray = array("製品について","不具合について","その他");                // 質問カテゴリの選択肢の配列
 
-    echo "<div class = 'contents'>";
+    echo "<div class = 'contents'>";       // ページ全体の設定
     echo "<table border=1>";
-    echo "<caption>お問い合わせ</caption>";
+    echo "<caption>お問い合わせ</caption>"; // 見出し
 
     echo "<tr>";
     echo "<td class = menu>";
     echo "姓名";
     echo "</td>";
     echo "<td>";
-    $surname = htmlspecialchars($_POST['surname']);
+    $surname = htmlspecialchars($_POST['surname']);     //　特殊文字をエンティティ文字に変換、htmlタグが送信されても実行させないようにする
     $name = htmlspecialchars($_POST['name']);
-    echo $surname." ".$name;
+    echo $surname." ".$name;    // 姓　名を表示
     echo "</td>";
     echo "</tr>";
 
@@ -31,7 +31,7 @@
     echo "</td>";
     echo "<td>";
     $gender = $_POST['gender'];
-    echo $genarray[$gender-1];
+    echo $genarray[$gender];     // ラジオボタンから受け取ったvalueを使用し、性別の配列から当てはまるものを表示
     echo "</td>";
     echo "</tr>";
 
@@ -42,7 +42,7 @@
     echo "</td>";
     echo "<td>";
     $address = htmlspecialchars($_POST['address']);
-    echo $address;
+    echo $address;             // 住所を表示
     echo "</td>";
     echo "</tr>";
 
@@ -52,7 +52,7 @@
     echo "電話番号";
     echo "</td>";
     echo "<td>";
-    echo $_POST['tel1'];
+    echo $_POST['tel1'];     //　電話番号を表示
     echo "-";
     echo $_POST['tel2'];
     echo "-";
@@ -66,7 +66,7 @@
     echo "メールアドレス";
     echo "</td>";
     echo "<td>";
-    $email1 = htmlspecialchars($_POST['email1']);
+    $email1 = htmlspecialchars($_POST['email1']);          //　メールアドレスを表示
     echo $email1;
     echo "@";
     $email2 = htmlspecialchars($_POST['email2']);
@@ -82,7 +82,7 @@
     echo "<td>";
     $check = $_POST['check'];
     for($i=0;$i<count($check);$i++){
-        echo $checkarray[$check[$i]]."<br />";
+        echo $checkarray[$check[$i]]."<br />";      // チェックボックスから受け取ったvalueの値を使用し、｢どこで知ったか｣の配列から当てはまるものを表示
     }
     echo "</td>";
     echo "</tr>";
@@ -94,7 +94,7 @@
     echo "</td>";
     echo "<td>";
     $question = $_POST['question'];
-    echo $quearray[$question-1];
+    echo $quearray[$question];       // リストボックスから受け取ったvalueの値を使用し、質問カテゴリの配列から当てはまるものを表示
     echo "</td>";
     echo "</tr>";
 
@@ -105,7 +105,7 @@
     echo "</td>";
     echo "<td>";
     $content = htmlspecialchars($_POST['content']);
-    echo "<textarea readonly rows=5 cols=55>";
+    echo "<textarea readonly rows=5 cols=55>";           // お問い合わせ内容をテキストエリアを使用し、編集不可の状態で表示
     echo $content;
     echo "</textarea>";
     echo "</td>";
@@ -115,7 +115,7 @@
 
     echo "<br /><br />";
 
-    echo "<input type='button' value='戻る' onclick='history.back()' class = 'btn'>";
+    echo "<input type='button' value='戻る' onclick='history.back()' class = 'btn'>";     // 戻るボタン
 
     echo "</div>";
 
