@@ -105,6 +105,7 @@
     echo "</td>";
     echo "<td>";
     $content = htmlspecialchars($_POST['content']);
+    $content = nl2br($content);
     echo $content;
     echo "</td>";
     echo "</tr>";

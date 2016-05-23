@@ -61,13 +61,12 @@
     echo "<div class ='clear'></div>";
 
     $content = htmlspecialchars($_POST['content']);
+    $content = nl2br($content);
     echo "<div class ='menu'>お問い合わせ内容</div>";           // お問い合わせ内容をテキストエリアを使用し、編集不可の状態で表示
     echo "<div class='input'>";
     echo $content;
-    
-    echo "<input type='button' value='戻る' onclick='history.back()' class = 'btn'>";     // 戻るボタン
-
     echo "</div>";
+    echo "<input type='button' value='戻る' onclick='history.back()' class = 'btn2'>";     // 戻るボタン
 
     echo "</div>";
 
