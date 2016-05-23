@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "UTF-8";   /* 文書の文字コードを設定　*/
 
 /* bodyの設定 */
 body{
@@ -11,19 +11,16 @@ form{
     text-align: center;
 }
 
-/* コンテンツ全体の設定 */
-.contents{
-    padding-top: 80px;
-    text-align: center;
-}
-
-
-
-
 /* リストボックス、チェックボックス、ラジオボタンにカーソルを当てるときの設定 */
 select,label, input[type='checkbox'],input[type='radio'] {
     cursor: pointer;
 }
+
+/* 完了ボタンの設定 */
+input[type=submit]{
+    margin-left: 70px;
+}
+
 
 /* フォームのテーブルの設定 */
 table{
@@ -34,6 +31,7 @@ table{
     /*background-color: #F0FFFF;*/
 }
 
+/* テーブルのセルの設定 */
 table td{
     padding: 10px;
     border: 1px solid #000;
@@ -50,28 +48,6 @@ caption{
     font-weight: bold;
     color: #FFFFFF;
 }
-
-
-/* 姓、名、性別などの項目の設定 */
-.menu{
-    width: 270px;
-}
-
-/* 完了ボタンの設定 */
-input[type=submit]{
-    margin-left: 70px;
-}
-
-/* 各種ボタンの設定 */
-.btn{
-    margin: auto;
-    font-size: 35px;
-    border-radius: 3px;
-    padding: 8px 13px;
-    margin-top: 5px;
-    cursor: pointer;
-}
-
 
 /* テキストボックスの設定 */
 input[type=text]{
@@ -90,6 +66,28 @@ select{
     font-family: meiryo;
     font-size: 15px;
 }
+
+/* コンテンツ全体の設定 */
+.contents{
+    padding-top: 80px;
+    text-align: center;
+}
+
+/* 姓、名、性別などの項目の設定 */
+.menu{
+    width: 270px;
+}
+
+/* 各種ボタンの設定 */
+.btn{
+    margin: auto;
+    font-size: 35px;
+    border-radius: 3px;
+    padding: 8px 13px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
 
 /* ｢必須｣の文字の設定 */
 .require{
