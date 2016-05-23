@@ -10,7 +10,7 @@
     $quearray = array("製品について","不具合について","その他");                // 質問カテゴリの選択肢の配列
 
     echo "<div class = 'contents'>";       // ページ全体の設定
-    echo "<table border=1>";
+    echo "<table border=1>";               // テーブル 枠線を表示
     echo "<caption>お問い合わせ</caption>"; // 見出し
 
     echo "<tr>";
