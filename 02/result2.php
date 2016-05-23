@@ -11,7 +11,7 @@
 
     echo "<div class = 'form_setting'>";       // ページ全体の設定
 
-    echo "<h1>お問い合わせ</h1>";               // 見出し
+    echo "<h1>お問い合わせ完了</h1>";               // 見出し
 
     echo "<div class = main>";
 
@@ -63,10 +63,8 @@
     $content = htmlspecialchars($_POST['content']);
     echo "<div class ='menu'>お問い合わせ内容</div>";           // お問い合わせ内容をテキストエリアを使用し、編集不可の状態で表示
     echo "<div class='input'>";
-    echo "<textarea readonly rows=5 cols=48>";
     echo $content;
-    echo "</textarea>";
-
+    
     echo "<input type='button' value='戻る' onclick='history.back()' class = 'btn'>";     // 戻るボタン
 
     echo "</div>";

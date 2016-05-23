@@ -11,7 +11,7 @@
 
     echo "<div class = 'contents'>";       // ページ全体の設定
     echo "<table border=1>";               // テーブル 枠線を表示
-    echo "<caption>お問い合わせ</caption>"; // 見出し
+    echo "<caption>お問い合わせ完了</caption>"; // 見出し
 
     echo "<tr>";
     echo "<td class = menu>";
@@ -105,9 +105,7 @@
     echo "</td>";
     echo "<td>";
     $content = htmlspecialchars($_POST['content']);
-    echo "<textarea readonly rows=5 cols=55>";           // お問い合わせ内容をテキストエリアを使用し、編集不可の状態で表示
     echo $content;
-    echo "</textarea>";
     echo "</td>";
     echo "</tr>";
 
