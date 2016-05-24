@@ -1,3 +1,15 @@
+<<?php
+    session_start();
+    $content = htmlspecialchars($_POST['content']);
+    $pattern="^(\s|　)+$";
+    if(!preg_match($pattern,$content)){
+        $_SESSION['surname'] = htmlspecialchars($_POST['surname']);
+        $_SESSION['name'] = htmlspecialchars($_POST['name']);
+        header('Location: contact.php?flag=1');
+    }
+
+?>
+
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">       <!-- CSSの読み込み -->
@@ -104,7 +116,6 @@
     echo "お問い合わせ内容";
     echo "</td>";
     echo "<td>";
-    $content = htmlspecialchars($_POST['content']);
     $content = nl2br($content);
     echo $content;
     echo "</td>";

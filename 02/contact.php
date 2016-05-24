@@ -1,6 +1,29 @@
+<?php
+
+    session_start();
+
+?>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">       <!-- CSSの読み込み -->
+        <script type="text/javascript">
+        <?php
+            if(isset($_GET['flag'])){
+                if($_GET['flag']==1){
+                    echo 'alert("お問い合わせ内容を入力してください")';
+                }
+            }
+        ?>
+        function resetform(){
+            <?php
+            $_SESSION = array();
+            if (isset($_COOKIE[session_name()])) {
+                setcookie(session_name(), '', time()-42000, '/');
+            }
+            session_destroy();
+            ?>
+        }
+        </script>
     </head>
     <body>
         <form action="result.php" method="post" name=fm>   <!-- フォームデータを result.php へポストメソッドを使用して送信 -->
@@ -10,10 +33,13 @@
                 <tr>
                     <td class = menu>姓　[全角文字]<div class = require>必須</div></td>
                     <td>
-                        <input type="text" name="surname" size=12 placeholder="例） 問合" required onKeyup="this.value=this.value.replace(/[^ぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')">      <!-- 苗字を入れるテキストボックス
-                                                                                                       タグの属性に requared を使用し、この中身が空白の場合、
-                                                                                                       submit ボタンを押したときに画面上で入力を促すメッセージが表示される -->
-
+                        <?php
+                            if(empty($_SESSION['surname'])){
+                                echo "<input type='text' name='surname' size=12 placeholder='例） 問合' required onKeyup=this.value=this.value.replace(/[^ァ-ンぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')>";
+                            }else{
+                                echo "<input type='text' value='$_SESSION[surname]' name='surname' size=12 placeholder='例） 問合' required onKeyup=this.value=this.value.replace(/[^ァ-ンぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')>";
+                            }
+                        ?>
                     </td>
                 </tr>
 
@@ -21,7 +47,7 @@
                 <tr>
                     <td class = menu>名　[全角文字]<div class = require>必須</div></td>
                     <td>
-                        <input type="text" name="name" size=12 placeholder="例） 太郎" required onKeyup="this.value=this.value.replace(/[^ぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')">    <!-- 名前を入れるテキストボックス -->
+                        <input type="text" name="name" size=12 placeholder="例） 太郎" required onKeyup="this.value=this.value.replace(/[^ァ-ンぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')">    <!-- 名前を入れるテキストボックス -->
                     </td>
                 </tr>
 
@@ -97,7 +123,7 @@
             </table>
 
             <br />
-            <input type="reset" vaule="リセット" class = "btn">     <!-- 入力した値を全て削除するリセットボタン -->
+            <input type="reset" value="リセット" class = "btn" onclick="resetform()">     <!-- 入力した値を全て削除するリセットボタン -->
             <input type="submit" value="完了" class = "btn">      <!-- submit ボタン -->
 
         </form>

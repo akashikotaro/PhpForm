@@ -13,7 +13,7 @@
 
                 <div class ='menu'>姓</div>
                 <div class = require>必須</div>
-                <div class ='input'><input type='text' name='surname' size=12 placeholder=' 例) 問合' required onKeyup="this.value=this.value.replace(/[^ぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')"></div>  <!-- 苗字を入れるテキストボックス
+                <div class ='input'><input type='text' name='surname' size=12 placeholder=' 例) 問合' required onKeyup="this.value=this.value.replace(/[^ァ-ンぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')"></div>  <!-- 苗字を入れるテキストボックス
                                                                                                                        タグの属性に requared を使用し、この中身が空白の場合、
                                                                                                                        submit ボタンを押したときに画面上で入力を促すメッセージが表示される -->
 
@@ -24,7 +24,7 @@
 
                 <div class ='menu'>名</div>
                 <div class = require>必須</div>
-                <div class ='input'><input type='text' name='name' size=12 placeholder=' 例) 太郎' required　 onKeyup="this.value=this.value.replace(/[^ぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')"></div>    <!-- 名前を入れるテキストボックス -->
+                <div class ='input'><input type='text' name='name' size=12 placeholder=' 例) 太郎' required　 onKeyup="this.value=this.value.replace(/[^ァ-ンぁ-んａ-ｚＡ-Ｚ一-龥]+/i,'')"></div>    <!-- 名前を入れるテキストボックス -->
 
 
                 <div class ='clear'></div>
@@ -52,7 +52,7 @@
                 <div class ='menu'>電話番号</div>
                 <div class = require>必須</div>
                 <div class='input'>
-                    <input type="text" name="tel1" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" placeholder="例）000" required> -   <!-- 電話番号を入れるテキストボックス -->
+                    <input type="text" name="tel1" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" placeholder="例)000" required> -   <!-- 電話番号を入れるテキストボックス -->
                     <input type="text" name="tel2" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" placeholder=" 0000" required> -    <!-- 1つのテキストボックスには最大4文字分入力できる -->
                     <input type="text" name="tel3" size=4 maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" placeholder=" 0000" required>       <!--半角数字以外の文字は全て入力できないように設定 -->
                 </div>
