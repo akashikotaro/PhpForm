@@ -1,12 +1,13 @@
-<<?php
+<?php/*
     session_start();
     $content = htmlspecialchars($_POST['content']);
     $pattern="^(\s|　)+$";
-    if(!preg_match($pattern,$content)){
-        $_SESSION['surname'] = htmlspecialchars($_POST['surname']);
-        $_SESSION['name'] = htmlspecialchars($_POST['name']);
+    //if(!mb_ereg_replace($pattern,$content)){
+        //$_SESSION['surname'] = htmlspecialchars($_POST['surname']);
+        //$_SESSION['name'] = htmlspecialchars($_POST['name']);
+        //$_SESSION['gender'] = htmlspecialchars($_POST['gender']);
         header('Location: contact.php?flag=1');
-    }
+    //}*/
 
 ?>
 
@@ -43,7 +44,8 @@
     echo "</td>";
     echo "<td>";
     $gender = $_POST['gender'];
-    echo $genarray[$gender];     // ラジオボタンから受け取ったvalueを使用し、性別の配列から当てはまるものを表示
+    $gender2 = $genarray[$gender];
+    echo $gender2;     // ラジオボタンから受け取ったvalueを使用し、性別の配列から当てはまるものを表示
     echo "</td>";
     echo "</tr>";
 
@@ -64,11 +66,14 @@
     echo "電話番号";
     echo "</td>";
     echo "<td>";
-    echo $_POST['tel1'];     //　電話番号を表示
+    $tel1 = $_POST['tel1'];
+    echo $tel1;     //　電話番号を表示
     echo "-";
-    echo $_POST['tel2'];
+    $tel2 = $_POST['tel2'];
+    echo $tel2;
     echo "-";
-    echo $_POST['tel3'];
+    $tel3 = $_POST['tel3'];
+    echo $tel3;
     echo "</td>";
     echo "</tr>";
 
@@ -93,8 +98,10 @@
     echo "</td>";
     echo "<td>";
     $check = $_POST['check'];
+    $checkarray2 = "";
     for($i=0;$i<count($check);$i++){
         echo $checkarray[$check[$i]]."<br />";      // チェックボックスから受け取ったvalueの値を使用し、｢どこで知ったか｣の配列から当てはまるものを表示
+        $checkarray2 += $checkarray[$check[$i]]." ";
     }
     echo "</td>";
     echo "</tr>";
@@ -106,7 +113,8 @@
     echo "</td>";
     echo "<td>";
     $question = $_POST['question'];
-    echo $quearray[$question];       // リストボックスから受け取ったvalueの値を使用し、質問カテゴリの配列から当てはまるものを表示
+    $question2 = $quearray[$question];
+    echo $question2;       // リストボックスから受け取ったvalueの値を使用し、質問カテゴリの配列から当てはまるものを表示
     echo "</td>";
     echo "</tr>";
 
@@ -116,6 +124,7 @@
     echo "お問い合わせ内容";
     echo "</td>";
     echo "<td>";
+    $content = htmlspecialchars($_POST['content']);
     $content = nl2br($content);
     echo $content;
     echo "</td>";
@@ -128,6 +137,23 @@
     echo "<input type='button' value='戻る' onclick='history.back()' class = 'btn'>";     // 戻るボタン
 
     echo "</div>";
+
+    $file = "contact_log.txt";
+
+    if(file_exists($file) === false){
+        touch($file);
+    }
+
+    $current = file_get_contents($file);
+    $current .= "姓名"." ".$surname."\n";
+    $current .= "性別"." ".$gender2."\n";
+    $current .= "住所"." ".$address."\n";
+    $current .= "電話番号"." ".$tel1."-".$tel2."-".$tel3."\n";
+    $current .= "メールアドレス"." ".$email1."@".$email2."\n";
+    $current .= "どこで知ったか"." ".$checkarray2."\n";
+    $current .= "質問カテゴリ"." ".$question."\n";
+    $current .= "問い合わせ内容"." ".$content."\n";
+    file_put_contents($file, $current);
 
 ?>
 
