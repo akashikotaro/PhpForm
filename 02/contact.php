@@ -6,6 +6,8 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">       <!-- CSSの読み込み -->
+        <title>PHP応用課題</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!--<script type="text/javascript">
         <?php/*
             if(isset($_GET['flag'])){
@@ -56,7 +58,7 @@
                 <tr>
                     <td class = menu>住所<div class = require>必須</div></td>
                     <td>
-                        <input type="text" name="address" size=30 placeholder="例） 東京都 問合市 問合1-1"　required onKeyup="this.value=this.value.replace(/[^ぁ-んａ-ｚＡ-Ｚ一-龥0-9０-９]+/i,'')">     <!-- 住所を入れるテキストボックス -->
+                        <input type="text" name="address" required size=30 placeholder="例） 東京都 問合市 問合1-1" onKeyup="this.value=this.value.replace(/[^ぁ-んａ-ｚＡ-Ｚ一-龥0-9０-９]+/i,'')">     <!-- 住所を入れるテキストボックス -->
                     </td>
                 </tr>
 

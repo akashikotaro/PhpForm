@@ -49,6 +49,17 @@ caption{
     color: #FFFFFF;
 }
 
+.cap2{
+    letter-spacing: 9px;
+    padding: 20px;
+    margin-bottom: 5px;
+    border: double 5px #FFFFFF;
+    background-color:#FF9933;
+    font-size: 33px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
 /* テキストボックスの設定 */
 input[type=text]{
     font-size: 17px;
