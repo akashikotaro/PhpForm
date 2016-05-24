@@ -7,7 +7,7 @@ body{
 
 /* フォームの設定 */
 form{
-    padding-top: 80px;
+    padding-top: 30px;
     text-align: center;
 }
 
@@ -44,6 +44,17 @@ caption{
     margin-bottom: 5px;
     border: double 5px #FFFFFF;
     background-color:#4387e9;
+    font-size: 33px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.cap2{
+    letter-spacing: 9px;
+    padding: 20px;
+    margin-bottom: 5px;
+    border: double 5px #FFFFFF;
+    background-color:#FF9933;
     font-size: 33px;
     font-weight: bold;
     color: #FFFFFF;
@@ -105,4 +116,80 @@ select{
     background-color:#4387e9;
     width: 60px;
     padding: 2px 4px;
+}
+
+.bread {
+  list-style : none;
+  overflow : hidden;
+  margin: 0 auto;
+  width: 500px;
+  margin-top: 30px;
+}
+.bread li {
+  float : left;
+  line-height : 60px;
+}
+.bread li a {
+  display : block;
+  float : left;
+  padding : 0 40px 0 50px;
+  font-weight : bold;
+  color : #666;
+  text-decoration : none;
+  background: -moz-linear-gradient(left, #EDEDED, #CCCCCC);
+  background: -webkit-linear-gradient(left, #EDEDED, #CCCCCC);
+  background: -ms-linear-gradient(left, #EDEDED, #CCCCCC);
+  background: linear-gradient(left, #EDEDED, #CCCCCC);
+  background-color : #CCCCCC;
+  text-shadow : 1px 1px 0 #FFFFFF;
+}
+
+.bread li a::before {
+  display : block;
+  width : 15px;
+  height : 30px;
+  border-right : 5px solid #FFFFFF;
+  margin : 0 -50px -30px auto;
+  background-color : #CCCCCC;
+  content : " ";
+  -webkit-transform : skew(30deg);
+  -moz-transform : skew(30deg);
+  transform : skew(30deg);
+}
+.bread li a::after {
+  display : block;
+  width : 15px;
+  height : 30px;
+  border-right : 5px solid #FFFFFF;
+  margin : -30px -50px 0 auto;
+  background-color : #CCCCCC;
+  content : " ";
+  -webkit-transform : skew(-30deg);
+  -moz-transform : skew(-30deg);
+  transform : skew(-30deg);
+}
+
+.bread li.current a {
+  color : #FFFFFF;
+  background : linear-gradient(left, #E69A4F, #BA4A0A);
+  background : -webkit-linear-gradient(left, #E69A4F, #BA4A0A);
+  background : -moz-linear-gradient(left, #E69A4F, #BA4A0A);
+  background : -ms-linear-gradient(left, #E69A4F, #BA4A0A);
+  background-color : #BA4A0A;
+  text-shadow : 1px 1px 0 #BA4A0A;
+}
+.bread li.current a::after, .bread li.current a::before {
+  background-color : #BA4A0A;
+}
+.bread li a:hover {
+  color : #FFFFFF;
+  background : linear-gradient(left, #CCCCCC, #999999);
+  background : -webkit-linear-gradient(left, #CCCCCC, #999999);
+  background : -moz-linear-gradient(left, #CCCCCC, #999999);
+  background : -ms-linear-gradient(left, #CCCCCC, #999999);
+  background-color : #999999;
+  text-shadow : 1px 1px 0 #999999;
+}
+.bread li a:hover::before, .bread li a:hover::after {
+  background-color : #999999;
 }
