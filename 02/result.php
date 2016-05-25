@@ -3,12 +3,6 @@
     <link rel="stylesheet" type="text/css" href="style.css">       <!-- CSSの読み込み -->
     <title>PHP応用課題</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script language="JavaScript">
-    myHome="conf.php";
-    if (document.referrer.length !=0){ // リンク元がxxxxではない場合
-    location.href = myHome; // エラー画面へジャンプ
-    }
-    </script>
 </head>
 <body>
 <?php

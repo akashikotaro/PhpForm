@@ -114,6 +114,10 @@ select{
     padding: 2px 4px;
 }
 
+.input{
+    width: 380px;
+}
+
 
 
 /* パンくずリストの設定 */
