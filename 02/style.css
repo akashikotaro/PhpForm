@@ -5,12 +5,6 @@ body{
     font-family: meiryo;
 }
 
-/* フォームの設定 */
-form{
-    padding-top: 30px;
-    text-align: center;
-}
-
 /* リストボックス、チェックボックス、ラジオボタンにカーソルを当てるときの設定 */
 select,label, input[type='checkbox'],input[type='radio'] {
     cursor: pointer;
@@ -54,10 +48,12 @@ caption{
     padding: 20px;
     margin-bottom: 5px;
     border: double 5px #FFFFFF;
-    background-color:#FF9933;
+    background-color:#4387e9;
     font-size: 33px;
     font-weight: bold;
     color: #FFFFFF;
+    width: 800px;
+    margin: auto;
 }
 
 /* テキストボックスの設定 */
@@ -80,7 +76,7 @@ select{
 
 /* コンテンツ全体の設定 */
 .contents{
-    padding-top: 80px;
+    padding-top: 15px;
     text-align: center;
 }
 
@@ -118,78 +114,61 @@ select{
     padding: 2px 4px;
 }
 
+.input{
+    width: 380px;
+}
+
+
+
+/* パンくずリストの設定 */
+/* [ul] */
 .bread {
-  list-style : none;
-  overflow : hidden;
-  margin: 0 auto;
-  width: 500px;
-  margin-top: 30px;
+	overflow: hidden ;
+	list-style-type: none ;
+    width: 840px;
+    padding-bottom: 5px;
+    margin: auto;
+    padding-left: 0;
 }
+
+/* [li] */
 .bread li {
-  float : left;
-  line-height : 60px;
-}
-.bread li a {
-  display : block;
-  float : left;
-  padding : 0 40px 0 50px;
-  font-weight : bold;
-  color : #666;
-  text-decoration : none;
-  background: -moz-linear-gradient(left, #EDEDED, #CCCCCC);
-  background: -webkit-linear-gradient(left, #EDEDED, #CCCCCC);
-  background: -ms-linear-gradient(left, #EDEDED, #CCCCCC);
-  background: linear-gradient(left, #EDEDED, #CCCCCC);
-  background-color : #CCCCCC;
-  text-shadow : 1px 1px 0 #FFFFFF;
+    float: left;
 }
 
-.bread li a::before {
-  display : block;
-  width : 15px;
-  height : 30px;
-  border-right : 5px solid #FFFFFF;
-  margin : 0 -50px -30px auto;
-  background-color : #CCCCCC;
-  content : " ";
-  -webkit-transform : skew(30deg);
-  -moz-transform : skew(30deg);
-  transform : skew(30deg);
-}
-.bread li a::after {
-  display : block;
-  width : 15px;
-  height : 30px;
-  border-right : 5px solid #FFFFFF;
-  margin : -30px -50px 0 auto;
-  background-color : #CCCCCC;
-  content : " ";
-  -webkit-transform : skew(-30deg);
-  -moz-transform : skew(-30deg);
-  transform : skew(-30deg);
+/* [>] */
+.bread li:after {
+	content: ">" ;
+	padding: 0 8px ;
 }
 
-.bread li.current a {
-  color : #FFFFFF;
-  background : linear-gradient(left, #E69A4F, #BA4A0A);
-  background : -webkit-linear-gradient(left, #E69A4F, #BA4A0A);
-  background : -moz-linear-gradient(left, #E69A4F, #BA4A0A);
-  background : -ms-linear-gradient(left, #E69A4F, #BA4A0A);
-  background-color : #BA4A0A;
-  text-shadow : 1px 1px 0 #BA4A0A;
+/* 一番最後の[li] */
+.bread li:last-child:after {
+	content: none ;
 }
-.bread li.current a::after, .bread li.current a::before {
-  background-color : #BA4A0A;
+
+.bread li a:link{
+    color: #000;
 }
-.bread li a:hover {
-  color : #FFFFFF;
-  background : linear-gradient(left, #CCCCCC, #999999);
-  background : -webkit-linear-gradient(left, #CCCCCC, #999999);
-  background : -moz-linear-gradient(left, #CCCCCC, #999999);
-  background : -ms-linear-gradient(left, #CCCCCC, #999999);
-  background-color : #999999;
-  text-shadow : 1px 1px 0 #999999;
+
+.bread li a:visited{
+    color: #000;
 }
-.bread li a:hover::before, .bread li a:hover::after {
-  background-color : #999999;
+
+.bread li a:hover{
+    color: #000;
+}
+
+.bread li a:active{
+    color: #000;
+}
+
+.conp{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    padding: 70px 0;
+    border: 4px double #000;
+    font-size: 25px;
+    width: 838px;
 }
