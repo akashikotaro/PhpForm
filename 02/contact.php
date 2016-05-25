@@ -8,24 +8,23 @@
         <link rel="stylesheet" type="text/css" href="style.css">       <!-- CSSの読み込み -->
         <title>PHP応用課題</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!--<script type="text/javascript">
-        <?php/*
-            if(isset($_GET['flag'])){
-                if($_GET['flag']==1){
-                    echo 'alert("お問い合わせ内容を入力してください")';
-                }
-            }*/
-        ?>
-    </script>-->
+        <script type="text/javascript">
+        var is_note_msg=true;
+        window.onbeforeunload = function(event){
+          if(is_note_msg){
+            event = event || window.event;
+          }
+        }
+        </script>
     </head>
     <body>
-        <ul class="bread">
-          <li class = "current"><a href="#">List001</a></li>
-          <li><a href="#">List002</a></li>
-          <li><a href="#">List003</a></li>
-        </ul>
-        <form action="result.php" method="post" name=fm>   <!-- フォームデータを result.php へポストメソッドを使用して送信 -->
-
+        <div class="contents">
+        <form action="conf.php" method="post" name=fm onSubmit="is_note_msg=false;">   <!-- フォームデータを result.php へポストメソッドを使用して送信 -->
+            <ul class="bread">
+            	<li>入力画面</li>
+            	<!--<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="..." itemprop="url"><span itemprop="title">ラーメン</span></a></li>
+            	<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="..." itemprop="url"><span itemprop="title">竹の塚地域</span></a></li>-->
+            </ul>
             <table>         <!-- テーブル -->
                 <caption>お問い合わせ</caption>   <!-- テーブルの見出し -->
                 <tr>
@@ -125,5 +124,6 @@
             <input type="submit" value="完了" class = "btn">      <!-- submit ボタン -->
 
         </form>
+        </div>
     </body>
 </html>
