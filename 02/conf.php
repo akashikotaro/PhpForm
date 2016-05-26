@@ -1,17 +1,3 @@
-<?php/*
-    session_start();
-    $content = htmlspecialchars($_POST['content']);
-    $pattern="^(\s|　)+$";
-    //if(!mb_ereg_replace($pattern,$content)){
-        //$_SESSION['surname'] = htmlspecialchars($_POST['surname']);
-        //$_SESSION['name'] = htmlspecialchars($_POST['name']);
-        //$_SESSION['gender'] = htmlspecialchars($_POST['gender']);
-        header('Location: contact.php?flag=1');
-    //}*/
-
-
-?>
-
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">       <!-- CSSの読み込み -->
@@ -44,9 +30,14 @@
     echo "姓名";
     echo "</td>";
     echo "<td class = input>";
-    $surname = htmlspecialchars($_POST['surname']);     //　特殊文字をエンティティ文字に変換、htmlタグが送信されても実行させないようにする
-    $name = htmlspecialchars($_POST['name']);
-    echo $surname." ".$name;    // 姓　名を表示
+    if(trim($_POST['surname'], " 　") == true && trim($_POST['name'], " 　") == true){
+        $surname = htmlspecialchars($_POST['surname']);     //　特殊文字をエンティティ文字に変換、htmlタグが送信されても実行させないようにする
+        $name = htmlspecialchars($_POST['name']);
+        echo $surname." ".$name;    // 姓　名を表示
+    }else{
+        echo "<font color=red>名前を入力してください</font>";
+        $flag = 1;
+    }
     echo "</td>";
     echo "</tr>";
 
@@ -56,9 +47,14 @@
     echo "性別";
     echo "</td>";
     echo "<td class = input>";
-    $gender = $_POST['gender'];
-    $gender2 = $genarray[$gender];
-    echo $gender2;     // ラジオボタンから受け取ったvalueを使用し、性別の配列から当てはまるものを表示
+    if(isset($_POST['gender'])){
+        $gender = $_POST['gender'];
+        $gender2 = $genarray[$gender];
+        echo $gender2;     // ラジオボタンから受け取ったvalueを使用し、性別の配列から当てはまるものを表示
+    }else{
+        echo "<font colo=red>性別を選択してください</font>";
+        $flag = 1;
+    }
     echo "</td>";
     echo "</tr>";
 
@@ -68,8 +64,13 @@
     echo "住所";
     echo "</td>";
     echo "<td class = input>";
-    $address = htmlspecialchars($_POST['address']);
-    echo $address;             // 住所を表示
+    if(trim($_POST['address'], " 　") == true){
+        $address = htmlspecialchars($_POST['address']);
+        echo $address;             // 住所を表示
+    }else{
+        echo "<font color=red>住所を入力してください</font>";
+        $flag = 1;
+    }
     echo "</td>";
     echo "</tr>";
 
@@ -79,14 +80,20 @@
     echo "電話番号";
     echo "</td>";
     echo "<td class = input>";
-    $tel1 = $_POST['tel1'];
-    echo $tel1;     //　電話番号を表示
-    echo "-";
-    $tel2 = $_POST['tel2'];
-    echo $tel2;
-    echo "-";
-    $tel3 = $_POST['tel3'];
-    echo $tel3;
+    if(trim($_POST['tel1'], " 　") == true && trim($_POST['tel2'], " 　") == true && trim($_POST['tel3'], " 　") == true) {
+        $tel1 = $_POST['tel1'];
+        echo $tel1;     //　電話番号を表示
+        echo "-";
+        $tel2 = $_POST['tel2'];
+        echo $tel2;
+        echo "-";
+        $tel3 = $_POST['tel3'];
+        echo $tel3;
+    }else{
+        echo "<font color=red>電話番号を入力してください</font>";
+        $flag = 1;
+    }
+
     echo "</td>";
     echo "</tr>";
 
@@ -96,11 +103,16 @@
     echo "メールアドレス";
     echo "</td>";
     echo "<td class = input>";
-    $email1 = htmlspecialchars($_POST['email1']);          //　メールアドレスを表示
-    echo $email1;
-    echo "@";
-    $email2 = htmlspecialchars($_POST['email2']);
-    echo $email2;
+    if(trim($_POST['email1'], " 　") == true && trim($_POST['email2'], " 　") == true){
+        $email1 = htmlspecialchars($_POST['email1']);          //　メールアドレスを表示
+        echo $email1;
+        echo "@";
+        $email2 = htmlspecialchars($_POST['email2']);
+        echo $email2;
+    }else{
+        echo "<font color=red>メールアドレスを入力してください</font>";
+        $flag = 1;
+    }
     echo "</td>";
     echo "</tr>";
 
@@ -125,9 +137,14 @@
     echo "質問カテゴリ";
     echo "</td>";
     echo "<td class = input>";
-    $question = $_POST['question'];
-    $question2 = $quearray[$question];
-    echo $question2;       // リストボックスから受け取ったvalueの値を使用し、質問カテゴリの配列から当てはまるものを表示
+    if(isset($_POST['question'])){
+        $question = $_POST['question'];
+        $question2 = $quearray[$question];
+        echo $question2;       // リストボックスから受け取ったvalueの値を使用し、質問カテゴリの配列から当てはまるものを表示
+    }else{
+        echo "質問カテゴリを選択してください";
+        $flag = 1;
+    }
     echo "</td>";
     echo "</tr>";
 
@@ -140,10 +157,10 @@
     $content = htmlspecialchars($_POST['content']);
     if(trim($content," 　\n\r") == false){
         echo "<font color=red>お問い合わせ内容を入力してください</font>";
+        $flag = 1;
     }else{
         $content2 = nl2br($content);
         echo $content2;
-        $flag = 1;
     }
     echo "</td>";
     echo "</tr>";
@@ -152,7 +169,7 @@
 
     echo "<br /><br />";
 
-    if($flag ==1){
+    if($flag != 1){
         echo "<form action='result.php' method='post'>";
 
         echo "<input type=hidden name=surname value='$surname'>";
