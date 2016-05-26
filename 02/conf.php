@@ -30,9 +30,9 @@
     echo "姓名";
     echo "</td>";
     echo "<td class = input>";
-    if(trim($_POST['surname'], " 　") == true && trim($_POST['name'], " 　") == true){
-        $surname = htmlspecialchars($_POST['surname']);     //　特殊文字をエンティティ文字に変換、htmlタグが送信されても実行させないようにする
-        $name = htmlspecialchars($_POST['name']);
+    if(str_replace("  ","",$_POST['surname']) != null  && str_replace(" 　","",$_POST['name']) != null){
+        $surname = htmlspecialchars(str_replace(array(" ", "　"),"",$_POST['surname']));     //　特殊文字をエンティティ文字に変換、htmlタグが送信されても実行させないようにする
+        $name = htmlspecialchars(str_replace(array(" ", "　"),"",$_POST['name']));
         echo $surname." ".$name;    // 姓　名を表示
     }else{
         echo "<font color=red>名前を入力してください</font>";
@@ -80,14 +80,14 @@
     echo "電話番号";
     echo "</td>";
     echo "<td class = input>";
-    if(trim($_POST['tel1'], " 　") == true && trim($_POST['tel2'], " 　") == true && trim($_POST['tel3'], " 　") == true) {
-        $tel1 = $_POST['tel1'];
+    if(str_replace(array(" ", "　"),"",$_POST['tel1']) != null && str_replace(array(" ", "　"),"",$_POST['tel2']) != null && str_replace(array(" ", "　"),"",$_POST['tel3']) != null) {
+        $tel1 = str_replace(array(" ", "　"),"",$_POST['tel1']);
         echo $tel1;     //　電話番号を表示
         echo "-";
-        $tel2 = $_POST['tel2'];
+        $tel2 = str_replace(array(" ", "　"),"",$_POST['tel2']);
         echo $tel2;
         echo "-";
-        $tel3 = $_POST['tel3'];
+        $tel3 = str_replace(array(" ", "　"),"",$_POST['tel3']);
         echo $tel3;
     }else{
         echo "<font color=red>電話番号を入力してください</font>";
@@ -103,11 +103,11 @@
     echo "メールアドレス";
     echo "</td>";
     echo "<td class = input>";
-    if(trim($_POST['email1'], " 　") == true && trim($_POST['email2'], " 　") == true){
-        $email1 = htmlspecialchars($_POST['email1']);          //　メールアドレスを表示
+    if(str_replace(array(" ", "　"),"",$_POST['email1']) != null && str_replace(array(" ", "　"),"",$_POST['email2']) != null){
+        $email1 = htmlspecialchars(str_replace(array(" ", "　"),"",$_POST['email1']));          //　メールアドレスを表示
         echo $email1;
         echo "@";
-        $email2 = htmlspecialchars($_POST['email2']);
+        $email2 = htmlspecialchars(str_replace(array(" ", "　"),"",$_POST['email2']));
         echo $email2;
     }else{
         echo "<font color=red>メールアドレスを入力してください</font>";
@@ -154,7 +154,7 @@
     echo "お問い合わせ内容";
     echo "</td>";
     echo "<td class = input>";
-    $content = htmlspecialchars($_POST['content']);
+    $content = str_replace("\n\r\n\r","",htmlspecialchars($_POST['content']));
     if(trim($content," 　\n\r") == false){
         echo "<font color=red>お問い合わせ内容を入力してください</font>";
         $flag = 1;
