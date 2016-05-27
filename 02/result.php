@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+if($_SESSION['page'] != 1){
+    header('location: contact.php');
+    exit();
+}
+
+?>
+
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">       <!-- CSSの読み込み -->
@@ -17,8 +27,8 @@
     <div class = 'contents'>       <!-- ページ全体の設定 -->
 
         <ul class='bread'>
-            <li><a href='contact.php'>入力画面</a></li>
-            <li><a href='#' onclick='history.back();'>確認画面</a></li>
+            <li>入力画面</a></li>
+            <li>確認画面</a></li>
             <li>完了画面</li>
         </ul>
 
@@ -29,7 +39,7 @@
     </div>
 
     <?php
-
+        error_reporting(E_ALL & ~E_NOTICE);
         $file = "contact_log.txt";
         $current = "";
 
@@ -43,8 +53,8 @@
         $current .= "姓名"." ".$_POST['surname']." ".$_POST['name']."\n";
         $current .= "性別"." ".$_POST['gender']."\n";
         $current .= "住所"." ".$_POST['address']."\n";
-        $current .= "電話番号"." ".$_POST['tel1']."-".$_POST['tel2']."-".$_POST['tel3']."\n";
-        $current .= "メールアドレス"." ".$_POST['email1']."@".$_POST['email2']."\n";
+        $current .= "電話番号"." ".$_POST['fulltel']."\n";
+        $current .= "メールアドレス"." ".$_POST['fullemail']."\n";
         $current .= "どこで知ったか"." ".$_POST['checkarray']."\n";
         $current .= "質問カテゴリ"." ".$_POST['question']."\n";
         $current .= "問い合わせ内容"."\n".$_POST['content']."\n";

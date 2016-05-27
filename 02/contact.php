@@ -1,3 +1,12 @@
+<?php
+
+    session_start();
+    $_SESSION['page'] = 0;
+
+
+?>
+
+
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">       <!-- CSSの読み込み -->
