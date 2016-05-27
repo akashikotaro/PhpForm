@@ -31,9 +31,14 @@
     echo "</td>";
     echo "<td class = input>";
     if(str_replace("  ","",$_POST['surname']) != null  && str_replace(" 　","",$_POST['name']) != null){
-        $surname = htmlspecialchars(str_replace(array(" ", "　"),"",$_POST['surname']));     //　特殊文字をエンティティ文字に変換、htmlタグが送信されても実行させないようにする
-        $name = htmlspecialchars(str_replace(array(" ", "　"),"",$_POST['name']));
-        echo $surname." ".$name;    // 姓　名を表示
+        if(preg_match("/^[ぁ-んァ-ヶー一-龠]+$/u",$_POST['surname']) && preg_match("/^[ぁ-んァ-ヶー一-龠]+$/u",$_POST['name'])){
+            $surname = htmlspecialchars(str_replace(array(" ", "　"),"",$_POST['surname']));     //　特殊文字をエンティティ文字に変換、htmlタグが送信されても実行させないようにする
+            $name = htmlspecialchars(str_replace(array(" ", "　"),"",$_POST['name']));
+            echo $surname." ".$name;    // 姓　名を表示
+        }else{
+            echo "<font color=red>名前を入力してください</font>";
+            $flag = 1;
+        }
     }else{
         echo "<font color=red>名前を入力してください</font>";
         $flag = 1;
@@ -81,14 +86,19 @@
     echo "</td>";
     echo "<td class = input>";
     if(str_replace(array(" ", "　"),"",$_POST['tel1']) != null && str_replace(array(" ", "　"),"",$_POST['tel2']) != null && str_replace(array(" ", "　"),"",$_POST['tel3']) != null) {
-        $tel1 = str_replace(array(" ", "　"),"",$_POST['tel1']);
-        echo $tel1;     //　電話番号を表示
-        echo "-";
-        $tel2 = str_replace(array(" ", "　"),"",$_POST['tel2']);
-        echo $tel2;
-        echo "-";
-        $tel3 = str_replace(array(" ", "　"),"",$_POST['tel3']);
-        echo $tel3;
+        if(is_numeric($_POST['tel1']) === true && is_numeric($_POST['tel2']) === true && is_numeric($_POST['tel3']) === true){
+            $tel1 = str_replace(array(" ", "　"),"",$_POST['tel1']);
+            echo $tel1;     //　電話番号を表示
+            echo "-";
+            $tel2 = str_replace(array(" ", "　"),"",$_POST['tel2']);
+            echo $tel2;
+            echo "-";
+            $tel3 = str_replace(array(" ", "　"),"",$_POST['tel3']);
+            echo $tel3;
+        }else{
+            echo "<font color=red>電話番号を入力してください</font>";
+            $flag = 1;
+        }
     }else{
         echo "<font color=red>電話番号を入力してください</font>";
         $flag = 1;
@@ -154,8 +164,8 @@
     echo "お問い合わせ内容";
     echo "</td>";
     echo "<td class = input>";
-    $content = str_replace("\n\r\n\r","",htmlspecialchars($_POST['content']));
-    if(trim($content," 　\n\r") == false){
+    $content = str_replace("\n\r\n\r","",htmlspecialchars($_POST['content']));  //検索文字列に一致したすべての文字列を置換する
+    if(trim($content," 　\n\r") == false){                                       //文字列の先頭および末尾にあるホワイトスペースを取り除く
         echo "<font color=red>お問い合わせ内容を入力してください</font>";
         $flag = 1;
     }else{
